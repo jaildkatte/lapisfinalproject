@@ -1,0 +1,17 @@
+<?php
+
+$Oid = $_POST['Oid'];
+$brand = $_POST['brand'];
+$color = $_POST['color'];
+$size = $_POST['size'];
+$price = $_POST['price'];
+
+$connection = mysqli_connect("localhost","root","","im_lapisdb");
+     
+     $sql = "UPDATE shoes SET Brand='$brand',color='$color',size='$size',price=$price WHERE Oid=$Oid";
+     
+     $result = $connection->query($sql);
+     
+     $connection->close();
+     
+     header('location:index.php');
